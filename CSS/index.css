@@ -1,0 +1,23 @@
+* {
+    margin-top: 1%;
+}   
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+#canvas {
+    cursor: none;
+    width: 1200px;
+    height: 550px;
+    border : 4px solid;
+    background: linear-gradient(to bottom, lightblue, darkblue, black);
+}
+
+
+button {
+    display: none;
+}
