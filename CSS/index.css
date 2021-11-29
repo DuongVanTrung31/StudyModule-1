@@ -10,11 +10,13 @@ body {
     text-align: center;
 }
 #canvas {
-    cursor: none;
-    width: 1200px;
-    height: 550px;
+    /* cursor: none; */
+    width: 100vw;
+    height: 100vh;
     border : 4px solid;
-    background: linear-gradient(to bottom, lightblue, darkblue, black);
+    background: url('/image/bgcsss\ \(2\).png');
+    background-size: contain;
+    /* background: linear-gradient(to bottom,#93deff,#087ec8, darkblue); */
 }
 
 

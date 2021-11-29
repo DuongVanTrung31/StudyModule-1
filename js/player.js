@@ -1,6 +1,8 @@
 //Player
-let playerImg = new Image();
-playerImg.src = '/image/sharkRight.gif';
+let playerRight = new Image();
+playerRight.src = '/image/sharkRight.gif';
+let playerLeft = new Image();
+playerLeft.src = '/image/SharkLeft.gif';
 
 class Player {
     constructor() {
@@ -8,18 +10,35 @@ class Player {
         this.y = canvas.height;
         this.radius = 30;
         this.angle = 0;
+        this.speed = 50;// lower is faster
     }
-    draw() {
-        if (score < 15) {
-            ctx.drawImage(playerImg,this.x-57, this.y-42,this.radius*3.2,this.radius*2.5)
+    draw(){
+        if(this.x >= mouse.x) {
+            if(score < 15) ctx.drawImage(playerLeft,this.x-40,this.y-30,this.radius*2.8,this.radius*2);
+            else if(score < 40) ctx.drawImage(playerLeft,this.x-55,this.y-40,this.radius*3,this.radius*2);
+            else if(score >= 40) ctx.drawImage(playerLeft,this.x-80,this.y-60,this.radius*3,this.radius*2);
+        } else {
+            if(score < 15) ctx.drawImage(playerRight,this.x-45,this.y-30,this.radius*2.8,this.radius*2);
+            else if(score < 40) ctx.drawImage(playerRight,this.x-65,this.y-40,this.radius*3,this.radius*2);
+            else if(score >= 40) ctx.drawImage(playerRight,this.x-100,this.y-60,this.radius*3,this.radius*2);
         }
-        if(score >= 15 && score < 35) {
-            player.radius = 40;
-            ctx.drawImage(playerImg,this.x-75, this.y-55,this.radius*3.2,this.radius*2.5);  
+    }
+    update() {
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        if (this.x != mouse.x) {
+            this.x += dx/this.speed;
         }
-        if (score >= 35) {
-            player.radius = 60;
-            ctx.drawImage(playerImg,this.x-140, this.y-95,this.radius*4,this.radius*2.8);
+        if (this.y != mouse.y){
+            this.y += dy/this.speed;
+        }
+        if (score >= 15 && score < 40) {
+            this.radius = 40;
+            this.speed = 40;
+        }
+        if (score >= 40) {
+            this.radius = 60;
+            this.speed = 30 ;
         }
     }
 }
