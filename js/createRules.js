@@ -32,7 +32,7 @@ function createAndCollisionEnemies() {
             else if (enemyArr[i].radius === 45) score+=3;
             eating();
             enemyArr.splice(i, 1);
-        } else if (enemyArr[i].distance  < player.radius + enemyArr[i].radius && enemyArr[i].radius > player.radius) {
+        } else if (enemyArr[i].distance + 15 < player.radius + enemyArr[i].radius && enemyArr[i].radius > player.radius) {
             localStorage.setItem("score" +localStorage.length,score);
             endGame();
         }
